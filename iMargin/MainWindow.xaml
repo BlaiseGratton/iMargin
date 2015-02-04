@@ -1,0 +1,21 @@
+﻿<Window x:Class="iMargin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="499.794" Width="729.527">
+    <Grid>
+        <StackPanel RenderTransformOrigin="0.495,0.363">
+        <Menu HorizontalAlignment="Center" Height="74" VerticalAlignment="Top" Width="712" Margin="0">
+                <RichTextBox Height="37" Width="140" BorderThickness="15,1,1,1" FontSize="24" FontFamily="Segoe Script">
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run Text="iMargin"/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+            <Button Content="Button"/>
+            <Button Content="Button"/>
+            <Button Content="Button"/>
+            </Menu>
+        </StackPanel>
+    </Grid>
+</Window>
