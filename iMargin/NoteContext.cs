@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace iMargin
 {
-    class NoteContext : DbContext
+    public class NoteContext : DbContext
     {
         public DbSet<Note> Notes { get; set; }
 
