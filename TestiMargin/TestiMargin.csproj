@@ -69,6 +69,10 @@
     <Compile Include="UITests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StoryTests.cs" />
+    <Compile Include="TestHelper.cs" />
+    <Compile Include="NoteRepositoryTest.cs" />
+    <Compile Include="NoteModelTest.cs" />
+    <Compile Include="ZeroStateTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
