@@ -11,6 +11,6 @@ namespace iMargin
     public class NoteContext : DbContext
     {
         public DbSet<Note> Notes { get; set; }
-
+        public DbSet<Category> Categories { get; set; }
     }
 }

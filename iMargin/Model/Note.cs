@@ -13,7 +13,7 @@ namespace iMargin.Model
         public int NoteId { get; set; }
         public string Date { get; set; }
         public string Title { get; set; }
-        public string Category { get; set; }        
+        public int CategoryId { get; set; }        
         public string Content { get; set; }
 
         public Note()
@@ -21,11 +21,11 @@ namespace iMargin.Model
 
         }
 
-        public Note(string NoteTitle, string NoteDate, string NoteCategory, string NoteContent)
+        public Note(string NoteTitle, string NoteDate, int CategoryId, string NoteContent)
         {
             this.Title = NoteTitle;
             this.Date = NoteDate;
-            this.Category = NoteCategory;
+            this.CategoryId = CategoryId;
             this.Content = NoteContent;
         }
 

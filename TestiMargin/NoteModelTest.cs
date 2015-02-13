@@ -10,10 +10,10 @@ namespace TestiMargin
         [TestMethod]
         public void CreatingNoteStoresProperties()
         {
-            Note toDoNote = new Note("ToDo", "12/02/2015", "Lists", "code code code");
+            Note toDoNote = new Note("ToDo", "12/02/2015", 1, "code code code");
             Assert.AreEqual("ToDo", toDoNote.Title);
             Assert.AreEqual("12/02/2015", toDoNote.Date);
-            Assert.AreEqual("Lists", toDoNote.Category);
+            Assert.AreEqual(1, toDoNote.CategoryId);
             Assert.AreEqual("code code code", toDoNote.Content);
         }
     }
