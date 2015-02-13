@@ -34,7 +34,7 @@ namespace iMargin.Repository
             return _dbContext.Notes.Count<Model.Note>();
         }
 
-        public void Add(Model.Note N)
+        public void AddNote(Model.Note N)
         {
             _dbContext.Notes.Add(N);
             _dbContext.SaveChanges();

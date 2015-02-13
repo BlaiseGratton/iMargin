@@ -11,7 +11,7 @@ namespace iMargin.Repository
     public interface INoteRepository
     {
         int GetCount();
-        void Add(Note N);
+        void AddNote(Note N);
         void Delete(Note N);
         void Clear();
         IEnumerable<Note> All();

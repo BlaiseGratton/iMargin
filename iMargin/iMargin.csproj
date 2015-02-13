@@ -60,6 +60,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Migrations\201502131800025_InitialCreate.cs" />
+    <Compile Include="Migrations\201502131800025_InitialCreate.Designer.cs">
+      <DependentUpon>201502131800025_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502132042570_AddCategoryId.cs" />
+    <Compile Include="Migrations\201502132042570_AddCategoryId.Designer.cs">
+      <DependentUpon>201502132042570_AddCategoryId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Repository\INoteRepository.cs" />
     <Compile Include="Repository\NoteRepository.cs" />
@@ -92,6 +101,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201502131800025_InitialCreate.resx">
+      <DependentUpon>201502131800025_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502132042570_AddCategoryId.resx">
+      <DependentUpon>201502132042570_AddCategoryId.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
