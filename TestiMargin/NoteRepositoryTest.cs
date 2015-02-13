@@ -36,6 +36,32 @@ namespace TestiMargin
         public void TestAddToDatabase()
         {
             Assert.AreEqual(0, repo.GetCount());
+            repo.Add(new Note("notetitle", "12/24/2011", "Misc.", "heyyyyy QT"));
+            Assert.AreEqual(1, repo.GetCount());
+        }
+
+        [TestMethod]
+        public void MyTestMethod()
+        {
+            repo.Add(new Note("notetitle", "12/24/2011", "Misc.", "heyyyyy QT"));
+            repo.Add(new Note("newnote", "12/22/2010", "School", "idk lol"));
+            Assert.AreEqual(2, repo.GetCount());
+        }
+
+        [TestMethod]
+        public void TestGetCount()
+        {
+            Assert.AreEqual(0, repo.GetCount());
+            repo.Add(new Note("notetitle", "12/24/2011", "Misc.", "heyyyyy QT"));
+            Assert.AreEqual(1, repo.GetCount());
+        }
+
+        [TestMethod]
+        public void TestClear()
+        {
+            repo.Add(new Note("notetitle", "12/24/2011", "Misc.", "heyyyyy QT"));
+            repo.Clear();
+            Assert.AreEqual(0, repo.GetCount());
         }
     }
 }
