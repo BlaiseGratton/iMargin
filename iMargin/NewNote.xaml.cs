@@ -10,25 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace iMargin
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for NewNote.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NewNote : Window
     {
-        public MainWindow()
+        public NewNote()
         {
             InitializeComponent();
         }
 
-        private void new_note_button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var a = new NewNote();
-            a.Show();
+
         }
     }
 }

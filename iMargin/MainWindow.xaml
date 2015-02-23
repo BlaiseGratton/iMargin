@@ -12,7 +12,7 @@
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-            <Button x:Name="new_note_button" Content="New Note"/>
+            <Button x:Name="new_note_button" Content="New Note" Click="new_note_button_Click"/>
             <Button x:Name="view_notes_button" Content="View Notes"/>
             <Button x:Name="search_button" Content="Search"/>
             </Menu>

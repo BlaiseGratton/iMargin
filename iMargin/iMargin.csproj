@@ -70,6 +70,9 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Category.cs" />
+    <Compile Include="NewNote.xaml.cs">
+      <DependentUpon>NewNote.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Repository\INoteRepository.cs" />
     <Compile Include="Repository\NoteRepository.cs" />
     <Page Include="MainWindow.xaml">
@@ -84,6 +87,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Note.cs" />

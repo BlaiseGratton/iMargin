@@ -1,0 +1,22 @@
+﻿<Window x:Class="iMargin.NewNote"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NewNote" Height="444.206" Width="548.498">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="413" VerticalAlignment="Top" Width="540">
+            <Label Content="New Note" HorizontalAlignment="Center"/>
+            <StackPanel Height="45" Orientation="Horizontal">
+                <Label Content="Title:" Width="186"/>
+                <Label Content="Category:" Width="190"/>
+                <Label Content="Date Created:" Width="162"/>
+            </StackPanel>
+            <StackPanel Height="27" Orientation="Horizontal">
+                <TextBox TextWrapping="Wrap" Text="TextBox" Width="185"/>
+                <ComboBox Width="121"/>
+                <TextBlock TextWrapping="Wrap" Text="TextBlock" Width="137" Margin="80, 0, 0, 0"/>
+            </StackPanel>
+            <TextBox Height="292" TextWrapping="Wrap"/>
+            <Button Content="Save" HorizontalAlignment="Center" Width="134" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
