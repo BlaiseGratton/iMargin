@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -83,6 +84,23 @@ namespace iMargin.Repository
         public void Dispose()
         {
             _dbContext.Dispose();
+        }
+
+        public Dictionary<string, int> GetAllTitles()
+        {
+            Dictionary<string, int> titles = _dbContext.Notes.Select(n => new { n.Title, n.NoteId} )
+                                             .ToDictionary( n => n.Title, n => n.NoteId );
+            return titles;
+        }
+
+        internal void PopulateDatabase()
+        {
+            this.AddNote(new Note("test note", "12/24/2011", 1, "this is a test"));
+            this.AddNote(new Note("test note2", "12/24/2012", 1, "this is a test"));
+            this.AddNote(new Note("test note3", "12/24/2013", 2, "this is a test"));
+            this.AddNote(new Note("test note4", "12/24/2014", 2, "this is a test"));
+            this.AddNote(new Note("test note5", "12/24/2015", 3, "this is a test"));
+            this.AddNote(new Note("test note6", "12/24/2010", 4, "this is a test"));
         }
     }
 }

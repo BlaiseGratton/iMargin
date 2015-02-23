@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using iMargin.Model;
+using iMargin.Repository;
 
 namespace iMargin
 {
@@ -19,14 +21,22 @@ namespace iMargin
     /// </summary>
     public partial class NewNote : Window
     {
+        private NoteRepository repo;
+        private Note note;
+
         public NewNote()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Add_Note(object sender, RoutedEventArgs e)
         {
-
+            repo = new NoteRepository();
+            string new_title = NewTitle.Text;
+            string new_content = NoteContent.Text;
+            note = new Note(new_title, "12/13/2015", 1, new_content);
+            repo.AddNote(note);
+            // close window
         }
     }
 }

@@ -11,12 +11,12 @@
                 <Label Content="Date Created:" Width="162"/>
             </StackPanel>
             <StackPanel Height="27" Orientation="Horizontal">
-                <TextBox TextWrapping="Wrap" Text="TextBox" Width="185"/>
+                <TextBox TextWrapping="Wrap" Name="NewTitle" Text="" Width="185"/>
                 <ComboBox Width="121"/>
-                <TextBlock TextWrapping="Wrap" Text="TextBlock" Width="137" Margin="80, 0, 0, 0"/>
+                <TextBlock TextWrapping="Wrap" Text="" Width="137" Margin="80, 0, 0, 0"/>
             </StackPanel>
-            <TextBox Height="292" TextWrapping="Wrap"/>
-            <Button Content="Save" HorizontalAlignment="Center" Width="134" Click="Button_Click"/>
+            <TextBox Height="292" Name="NoteContent" TextWrapping="Wrap"/>
+            <Button Content="Save" HorizontalAlignment="Center" Width="134" Click="Add_Note"/>
         </StackPanel>
     </Grid>
 </Window>

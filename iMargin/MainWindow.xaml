@@ -4,7 +4,7 @@
         Title="MainWindow" Height="499.794" Width="729.527">
     <Grid>
         <StackPanel RenderTransformOrigin="0.495,0.363">
-        <Menu HorizontalAlignment="Center" Height="74" VerticalAlignment="Top" Width="712" Margin="0">
+            <Menu HorizontalAlignment="Center" Height="74" VerticalAlignment="Top" Width="712" Margin="0">
                 <RichTextBox Height="37" Width="140" BorderThickness="15,1,1,1" FontSize="24" FontFamily="Segoe Script">
                     <FlowDocument>
                         <Paragraph>
@@ -12,10 +12,17 @@
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-            <Button x:Name="new_note_button" Content="New Note" Click="new_note_button_Click"/>
-            <Button x:Name="view_notes_button" Content="View Notes"/>
-            <Button x:Name="search_button" Content="Search"/>
+                <Button x:Name="new_note_button" Content="New Note" Click="new_note_button_Click"/>
+                <Button x:Name="view_notes_button" Content="View Notes"/>
+                <Button x:Name="search_button" Content="Search"/>
             </Menu>
         </StackPanel>
+        <ListBox Name="NoteTitleList" ItemsSource="{Binding NotifyOnSourceUpdated=True}" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="499" Margin="114,121,0,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Name="TitleBox" Text="{Binding Key, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

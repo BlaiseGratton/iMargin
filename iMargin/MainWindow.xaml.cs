@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iMargin.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,19 @@ namespace iMargin
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static NoteRepository repo = new NoteRepository();
+
         public MainWindow()
         {
             InitializeComponent();
+            if (repo.GetCount() == 0)
+            {
+                repo.PopulateDatabase();
+            }
+            NoteTitleList.DataContext = repo.GetAllTitles();
+            
+            // NoteTitleList.ItemsSource = repo.GetAllTitles();
+            
         }
 
         private void new_note_button_Click(object sender, RoutedEventArgs e)
