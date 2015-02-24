@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight.CommandWpf;
+﻿using iMargin.Model;
 using iMargin.Repository;
 using System;
 using System.Collections.Generic;
@@ -28,7 +28,6 @@ namespace iMargin
         public MainWindow()
         {
             InitializeComponent();
-            //CreateViewNoteCommand();
             NoteTitleList.MouseDoubleClick += new MouseButtonEventHandler(ViewNote);
             MessageBox.Show("Hello world!");
             if (repo.GetCount() == 0)
@@ -46,7 +45,12 @@ namespace iMargin
 
         private void ViewNote(object sender, RoutedEventArgs e)
         {
-            SystemSounds.Beep.Play();
+            // var n = CommandBinding 
+            //SystemSounds.Beep.Play();
+            Note note = new Note("ViewNoteTitle", "12/24/2015", 3, "view note contents here");
+            var v = new ViewNote(note);
+            v.Show();
+            
         }
     }
 }

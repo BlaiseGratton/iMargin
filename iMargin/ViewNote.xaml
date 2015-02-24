@@ -1,0 +1,17 @@
+﻿<Window x:Class="iMargin.ViewNote"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ViewNote" Height="597.015" Width="756.717">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="566" VerticalAlignment="Top" Width="749">
+            <StackPanel Height="100" Orientation="Horizontal">
+                <TextBlock TextWrapping="Wrap" Name="CategoryText" Width="202"/>
+                <TextBlock TextWrapping="Wrap" Name="TitleText" Width="350"/>
+                <TextBlock TextWrapping="Wrap" Name="DateText" Width="192" HorizontalAlignment="Right" TextAlignment="Right"/>
+            </StackPanel>
+            <StackPanel Height="466">
+                <TextBox Height="427" TextWrapping="Wrap" Name="ContentText"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

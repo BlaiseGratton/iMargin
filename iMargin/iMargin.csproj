@@ -93,6 +93,9 @@
     </Compile>
     <Compile Include="Repository\INoteRepository.cs" />
     <Compile Include="Repository\NoteRepository.cs" />
+    <Compile Include="ViewNote.xaml.cs">
+      <DependentUpon>ViewNote.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -106,6 +109,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewNote.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

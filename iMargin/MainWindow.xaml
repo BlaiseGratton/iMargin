@@ -21,9 +21,11 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Name="TitleBox" Text="{Binding Key, UpdateSourceTrigger=PropertyChanged}">
-                        <TextBlock.InputBindings>
-                            <MouseBinding Command="{Binding Path=ViewNoteCommand}" MouseAction="LeftDoubleClick" />
-                        </TextBlock.InputBindings>
+                        <TextBlock Name="ValueBox" Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}">
+                            <TextBlock.InputBindings>
+                                <MouseBinding Command="{Binding Path=ViewNoteCommand}" CommandParameter="{Binding Value}" MouseAction="LeftDoubleClick" />
+                            </TextBlock.InputBindings>
+                        </TextBlock>
                     </TextBlock>
                 </DataTemplate>
             </ListBox.ItemTemplate>
