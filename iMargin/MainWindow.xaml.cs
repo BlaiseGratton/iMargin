@@ -1,7 +1,9 @@
-﻿using iMargin.Repository;
+﻿using GalaSoft.MvvmLight.CommandWpf;
+using iMargin.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,20 +28,25 @@ namespace iMargin
         public MainWindow()
         {
             InitializeComponent();
+            //CreateViewNoteCommand();
+            NoteTitleList.MouseDoubleClick += new MouseButtonEventHandler(ViewNote);
+            MessageBox.Show("Hello world!");
             if (repo.GetCount() == 0)
             {
                 repo.PopulateDatabase();
             }
             NoteTitleList.DataContext = repo.GetAllTitles();
-            
-            // NoteTitleList.ItemsSource = repo.GetAllTitles();
-            
         }
 
         private void new_note_button_Click(object sender, RoutedEventArgs e)
         {
-            var a = new NewNote();
-            a.Show();
+            var n = new NewNote();
+            n.Show();
+        }
+
+        private void ViewNote(object sender, RoutedEventArgs e)
+        {
+            SystemSounds.Beep.Play();
         }
     }
 }

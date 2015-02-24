@@ -20,7 +20,11 @@
         <ListBox Name="NoteTitleList" ItemsSource="{Binding NotifyOnSourceUpdated=True}" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="499" Margin="114,121,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Name="TitleBox" Text="{Binding Key, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                    <TextBlock Name="TitleBox" Text="{Binding Key, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBlock.InputBindings>
+                            <MouseBinding Command="{Binding Path=ViewNoteCommand}" MouseAction="LeftDoubleClick" />
+                        </TextBlock.InputBindings>
+                    </TextBlock>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
