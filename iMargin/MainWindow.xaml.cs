@@ -55,10 +55,5 @@ namespace iMargin
             var v = new ViewNote(note);
             v.Show();
         }
-
-        public static void refreshDict()
-        {
-
-        }
     }
 }
