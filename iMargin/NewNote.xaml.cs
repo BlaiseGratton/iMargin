@@ -39,5 +39,11 @@ namespace iMargin
             MainWindow.titleDict.Add(note.Title, note.NoteId);
             this.Close();
         }
+
+        private void Open_Add_Category_Window(object sender, RoutedEventArgs e)
+        {
+            var c = new NewCategory();
+            c.Show();
+        }
     }
 }

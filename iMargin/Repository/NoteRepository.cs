@@ -94,6 +94,12 @@ namespace iMargin.Repository
             return titles;
         }
 
+        public void AddCategory(Model.Category C)
+        {
+            _dbContext.Categories.Add(C);
+            _dbContext.SaveChanges();
+        }
+
         internal void PopulateDatabase()
         {
             this.AddNote(new Note("test note", "12/24/2011", 1, "this is a test"));
