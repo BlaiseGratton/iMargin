@@ -19,6 +19,7 @@ namespace iMargin.Repository
         {
             _dbContext = new NoteContext();
             _dbContext.Notes.Load();
+            _dbContext.Categories.Load();
         }
 
         public NoteContext Context()
@@ -108,6 +109,13 @@ namespace iMargin.Repository
             this.AddNote(new Note("test note4", "12/24/2014", 2, "this is a test"));
             this.AddNote(new Note("test note5", "12/24/2015", 3, "this is a test"));
             this.AddNote(new Note("test note6", "12/24/2010", 4, "this is a test"));
+        }
+
+        public IEnumerable<Model.Category> GetAllCategories()
+        {
+            var cats = from Category in _dbContext.Categories
+                                               select Category;
+            return _dbContext.Categories.Local;
         }
     }
 }

@@ -34,7 +34,6 @@ namespace iMargin
             string newCategory = NewCatName.Text;
             Category cat = new Category(newCategory);
             repo.AddCategory(cat);
-            // update list of categories bindings
             this.Close();
         }
     }

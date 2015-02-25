@@ -34,14 +34,14 @@ namespace iMargin
             NoteTitleList.MouseDoubleClick += new MouseButtonEventHandler(ViewNote);
             if (repo.GetCount() == 0)
             {
-                repo.PopulateDatabase();
+                //repo.PopulateDatabase();
             }
             NoteTitleList.DataContext = titleDict;
         }
 
         private void new_note_button_Click(object sender, RoutedEventArgs e)
         {
-            var n = new NewNote();
+            NewNote n = new NewNote();
             n.Show();
         }
 

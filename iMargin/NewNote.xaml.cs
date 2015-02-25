@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using iMargin.Model;
 using iMargin.Repository;
+using DrWPF.Windows.Data;
 
 namespace iMargin
 {
@@ -21,21 +22,23 @@ namespace iMargin
     /// </summary>
     public partial class NewNote : Window
     {
-        private NoteRepository repo;
-        private Note note;
+        private static NoteRepository repo = new NoteRepository();
+
+        //public static NoteRepository repo = new NoteRepository();
 
         public NewNote()
         {
             InitializeComponent();
+            CatCombo.DataContext = repo.Context().Categories.Local;
         }
 
         private void Add_Note(object sender, RoutedEventArgs e)
         {
-            repo = new NoteRepository();
             string new_title = NewTitle.Text;
             string new_content = NoteContent.Text;
-            note = new Note(new_title, "12/13/2015", 1, new_content);
-            repo.AddNote(note);
+            int new_catId = (int)CatCombo.SelectedValue;
+            Note note = new Note(new_title, "12/13/2015", new_catId, new_content);
+            MainWindow.repo.AddNote(note);
             MainWindow.titleDict.Add(note.Title, note.NoteId);
             this.Close();
         }
