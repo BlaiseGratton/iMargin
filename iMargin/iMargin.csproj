@@ -91,6 +91,7 @@
     <Compile Include="NewNote.xaml.cs">
       <DependentUpon>NewNote.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ObservableDictionary.cs" />
     <Compile Include="Repository\INoteRepository.cs" />
     <Compile Include="Repository\NoteRepository.cs" />
     <Compile Include="ViewNote.xaml.cs">

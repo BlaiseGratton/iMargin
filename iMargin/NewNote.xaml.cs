@@ -36,6 +36,8 @@ namespace iMargin
             string new_content = NoteContent.Text;
             note = new Note(new_title, "12/13/2015", 1, new_content);
             repo.AddNote(note);
+            MainWindow.titleDict.Add(note.Title, note.NoteId);
+            MainWindow.refreshDict();
             // close window
         }
     }

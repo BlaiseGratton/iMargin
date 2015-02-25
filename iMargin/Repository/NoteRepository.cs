@@ -7,6 +7,7 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using DrWPF.Windows.Data;
 
 namespace iMargin.Repository
 {
@@ -88,8 +89,8 @@ namespace iMargin.Repository
 
         public Dictionary<string, int> GetAllTitles()
         {
-            Dictionary<string, int> titles = _dbContext.Notes.Select(n => new { n.Title, n.CategoryId} )
-                                             .ToDictionary( n => n.Title, n => n.CategoryId );
+            Dictionary<string, int> titles = _dbContext.Notes.Select(n => new { n.Title, n.NoteId} )
+                                             .ToDictionary( n => n.Title, n => n.NoteId );
             return titles;
         }
 

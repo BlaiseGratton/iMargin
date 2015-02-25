@@ -1,4 +1,5 @@
-﻿using iMargin.Model;
+﻿using DrWPF.Windows.Data;
+using iMargin.Model;
 using iMargin.Repository;
 using System;
 using System.Collections.Generic;
@@ -24,17 +25,18 @@ namespace iMargin
     public partial class MainWindow : Window
     {
         public static NoteRepository repo = new NoteRepository();
+        public static ObservableDictionary<string, int> titleDict = new ObservableDictionary<string,int>(repo.GetAllTitles());
+        public static IEnumerable<Model.Note> allNotes = repo.All();
 
         public MainWindow()
         {
             InitializeComponent();
             NoteTitleList.MouseDoubleClick += new MouseButtonEventHandler(ViewNote);
-            MessageBox.Show("Hello world!");
             if (repo.GetCount() == 0)
             {
                 repo.PopulateDatabase();
             }
-            NoteTitleList.DataContext = repo.GetAllTitles();
+            NoteTitleList.DataContext = titleDict;
         }
 
         private void new_note_button_Click(object sender, RoutedEventArgs e)
@@ -45,12 +47,18 @@ namespace iMargin
 
         private void ViewNote(object sender, RoutedEventArgs e)
         {
-            // var n = CommandBinding 
-            //SystemSounds.Beep.Play();
-            Note note = new Note("ViewNoteTitle", "12/24/2015", 3, "view note contents here");
+            var title = sender as ListBox;
+            var noteDict = title.SelectedItem as Dictionary<string, int>;
+            var tuple = titleDict.ElementAt(title.SelectedIndex);
+            int noteId = tuple.Value;
+            Note note = repo.GetById(noteId);
             var v = new ViewNote(note);
             v.Show();
-            
+        }
+
+        public static void refreshDict()
+        {
+
         }
     }
 }
