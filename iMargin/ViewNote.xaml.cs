@@ -23,17 +23,28 @@ namespace iMargin
     public partial class ViewNote : Window
     {
         private static NoteRepository repo = new NoteRepository();
-        private Note note;
         public static ObservableDictionary<int, string> catDict = new ObservableDictionary<int, string>(repo.GetAllCategories());
-
+        public Note noteInput;
 
         public ViewNote(Note note)
         {
             InitializeComponent();
+            this.noteInput = note;
             this.CategoryText.Text = catDict[note.CategoryId].ToString();
             this.TitleText.Text = note.Title;
             this.DateText.Text = note.Date;
             this.ContentText.Text = note.Content;
+        }
+
+        private void Edit_Note_Button(object sender, RoutedEventArgs e)
+        {
+            //(note.NoteId);
+        }
+
+        private void Delete_Note_Button(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            MainWindow.repo.Delete(MainWindow.repo.GetById(noteInput.NoteId));
         }
     }
 }

@@ -11,6 +11,8 @@
             </StackPanel>
             <StackPanel Height="466">
                 <TextBox Height="427" TextWrapping="Wrap" Name="ContentText"/>
+                <Button Content="Edit" Width="100" HorizontalAlignment="Center" Click="Edit_Note_Button"/>
+                <Button Content="Delete" Width="100" HorizontalAlignment="Center" Click="Delete_Note_Button"/>
             </StackPanel>
         </StackPanel>
     </Grid>

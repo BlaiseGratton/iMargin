@@ -47,6 +47,7 @@ namespace iMargin.Repository
         {
             _dbContext.Notes.Remove(N);
             _dbContext.SaveChanges();
+            MainWindow.titleDict.Remove(N.Title);
         }
 
         public void Clear()

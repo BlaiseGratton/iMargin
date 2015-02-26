@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using iMargin.Model;
 using iMargin.Repository;
 using DrWPF.Windows.Data;
+using System.Collections.ObjectModel;
 
 namespace iMargin
 {
@@ -23,12 +24,12 @@ namespace iMargin
     public partial class NewNote : Window
     {
         private static NoteRepository repo = new NoteRepository();
-
-        //public static NoteRepository repo = new NoteRepository();
+        private static ObservableCollection<Model.Category> cats = repo.Context().Categories.Local;
 
         public NewNote()
         {
             InitializeComponent();
+            CatCombo.SelectedIndex = 0;
             CatCombo.DataContext = repo.Context().Categories.Local;
         }
 
