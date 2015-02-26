@@ -1,4 +1,5 @@
-﻿using iMargin.Model;
+﻿using DrWPF.Windows.Data;
+using iMargin.Model;
 using iMargin.Repository;
 using System;
 using System.Collections.Generic;
@@ -21,14 +22,15 @@ namespace iMargin
     /// </summary>
     public partial class ViewNote : Window
     {
-        private NoteRepository repo;
+        private static NoteRepository repo = new NoteRepository();
         private Note note;
+        public static ObservableDictionary<int, string> catDict = new ObservableDictionary<int, string>(repo.GetAllCategories());
 
 
         public ViewNote(Note note)
         {
             InitializeComponent();
-            this.CategoryText.Text = note.CategoryId.ToString();
+            this.CategoryText.Text = catDict[note.CategoryId].ToString();
             this.TitleText.Text = note.Title;
             this.DateText.Text = note.Date;
             this.ContentText.Text = note.Content;

@@ -111,11 +111,11 @@ namespace iMargin.Repository
             this.AddNote(new Note("test note6", "12/24/2010", 4, "this is a test"));
         }
 
-        public IEnumerable<Model.Category> GetAllCategories()
+        public Dictionary<int, string>GetAllCategories()
         {
-            var cats = from Category in _dbContext.Categories
-                                               select Category;
-            return _dbContext.Categories.Local;
+            Dictionary<int, string> cats = _dbContext.Categories.Select(c => new { c.CategoryId, c.CategoryName })
+                                           .ToDictionary( c => c.CategoryId, c => c.CategoryName);
+            return cats;
         }
     }
 }
