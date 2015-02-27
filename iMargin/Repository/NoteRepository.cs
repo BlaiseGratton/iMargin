@@ -63,12 +63,20 @@ namespace iMargin.Repository
             return query.ToList<Model.Note>();
         }
 
-        public Model.Note GetById(int id)
+        public Model.Note GetNoteById(int id)
         {
             var query = from Note in _dbContext.Notes
                         where Note.NoteId == id
                         select Note;
             return query.First<Model.Note>();
+        }
+
+        public Model.Category GetCatById(int id)
+        {
+            var query = from Category in _dbContext.Categories
+                        where Category.CategoryId == id
+                        select Category;
+            return query.First<Model.Category>();
         }
 
         public Model.Note GetByDate(string date)

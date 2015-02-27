@@ -2,6 +2,7 @@
 using iMargin.Repository;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace iMargin
     public partial class EditNote : Window
     {
         private static NoteRepository repo = new NoteRepository();
+        private static ObservableCollection<Model.Category> cats = repo.Context().Categories.Local;
         public Note noteInput;
 
 
@@ -29,6 +31,8 @@ namespace iMargin
         {
             InitializeComponent();
             this.noteInput = note;
+            CatCombo.DataContext = cats;
+            CatCombo.SelectedIndex = cats.IndexOf(repo.GetCatById(note.CategoryId));
             WrapperPanel.DataContext = note;
         }
 
@@ -42,7 +46,7 @@ namespace iMargin
         {
             repo.SaveChanges();
             repo.SaveChanges();
-            ViewNote v = new ViewNote(repo.GetById(noteInput.NoteId));
+            ViewNote v = new ViewNote(repo.GetNoteById(noteInput.NoteId));
             v.Show();
             this.Close();
         }

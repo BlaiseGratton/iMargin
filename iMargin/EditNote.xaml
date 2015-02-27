@@ -11,7 +11,7 @@
             </StackPanel>
             <StackPanel Height="43" Orientation="Horizontal">
                 <Label Content="Label" Width="227"/>
-                <ComboBox Name="CatCombo" Width="189"/>
+                <ComboBox ItemsSource="{Binding NotifyOnSourceUpdated=True}" DisplayMemberPath="CategoryName" SelectedValuePath="CategoryId" Name="CatCombo" Width="189"/>
                 <Button Content="New Category" Width="122" Click="New_Category_Button"/>
             </StackPanel>
             <TextBox Text="{Binding Content}" Height="252" Name="ContentBox" TextWrapping="Wrap"/>

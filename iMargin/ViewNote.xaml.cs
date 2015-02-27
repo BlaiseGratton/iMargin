@@ -47,7 +47,7 @@ namespace iMargin
         private void Delete_Note_Button(object sender, RoutedEventArgs e)
         {
             this.Close();
-            MainWindow.repo.Delete(MainWindow.repo.GetById(noteInput.NoteId));
+            MainWindow.repo.Delete(MainWindow.repo.GetNoteById(noteInput.NoteId));
         }
     }
 }

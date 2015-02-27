@@ -15,7 +15,7 @@ namespace iMargin.Repository
         void Delete(Note N);
         void Clear();
         IEnumerable<Note> All();
-        Note GetById(int id);
+        Note GetNoteById(int id);
         Note GetByDate(string date);
         IQueryable<Note> SearchFor(Expression<Func<Note, bool>> predicate);
     }

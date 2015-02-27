@@ -51,7 +51,7 @@ namespace iMargin
             var noteDict = title.SelectedItem as Dictionary<string, int>;
             var tuple = titleDict.ElementAt(title.SelectedIndex);
             int noteId = tuple.Value;
-            Note note = repo.GetById(noteId);
+            Note note = repo.GetNoteById(noteId);
             var v = new ViewNote(note);
             v.Show();
         }
