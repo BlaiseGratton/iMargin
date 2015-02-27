@@ -34,11 +34,14 @@ namespace iMargin
             this.TitleText.Text = note.Title;
             this.DateText.Text = note.Date;
             this.ContentText.Text = note.Content;
+            this.ContentText.IsReadOnly = true;
         }
 
         private void Edit_Note_Button(object sender, RoutedEventArgs e)
         {
-            //(note.NoteId);
+            EditNote editNote = new EditNote(noteInput);
+            editNote.Show();
+            this.Close();
         }
 
         private void Delete_Note_Button(object sender, RoutedEventArgs e)

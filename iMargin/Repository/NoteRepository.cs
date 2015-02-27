@@ -118,5 +118,10 @@ namespace iMargin.Repository
                                            .ToDictionary( c => c.CategoryId, c => c.CategoryName);
             return cats;
         }
+
+        internal void SaveChanges()
+        {
+            _dbContext.SaveChanges();
+        }
     }
 }

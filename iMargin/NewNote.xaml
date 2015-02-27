@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="NewNote" Height="444.206" Width="548.498">
     <Grid>
-        <StackPanel HorizontalAlignment="Left" Height="413" VerticalAlignment="Top" Width="540">
+        <StackPanel HorizontalAlignment="Left" Height="413" VerticalAlignment="Top" Width="540" Margin="0,-1,0,0">
             <Label Content="New Note" HorizontalAlignment="Center"/>
-            <StackPanel Height="45" Orientation="Horizontal">
+            <StackPanel Height="25" Orientation="Horizontal">
                 <Label Content="Title:" Width="186"/>
                 <Label Content="Category:" Width="190"/>
                 <Label Content="Date Created:" Width="162"/>

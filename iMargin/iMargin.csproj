@@ -78,6 +78,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EditNote.xaml.cs">
+      <DependentUpon>EditNote.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201502131800025_InitialCreate.cs" />
     <Compile Include="Migrations\201502131800025_InitialCreate.Designer.cs">
       <DependentUpon>201502131800025_InitialCreate.cs</DependentUpon>
@@ -100,6 +103,10 @@
     <Compile Include="ViewNote.xaml.cs">
       <DependentUpon>ViewNote.xaml</DependentUpon>
     </Compile>
+    <Page Include="EditNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

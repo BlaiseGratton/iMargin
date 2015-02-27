@@ -1,0 +1,22 @@
+﻿<Window x:Class="iMargin.EditNote"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EditNote" Height="453.456" Width="667.742">
+    <Grid Margin="0,0,-8,0">
+        <StackPanel Name="WrapperPanel" HorizontalAlignment="Left" Height="422" VerticalAlignment="Bottom" Width="658">
+            <Label Content="Edit Note" HorizontalAlignment="Center"/>
+            <StackPanel Height="44" Orientation="Horizontal">
+                <Label Content="Title:" HorizontalAlignment="Left" Width="227"/>
+                <TextBox Name="TitleBox" TextWrapping="Wrap" Text="{Binding Title}" Width="191" TextAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Height="43" Orientation="Horizontal">
+                <Label Content="Label" Width="227"/>
+                <ComboBox Name="CatCombo" Width="189"/>
+                <Button Content="New Category" Width="122" Click="New_Category_Button"/>
+            </StackPanel>
+            <TextBox Text="{Binding Content}" Height="252" Name="ContentBox" TextWrapping="Wrap"/>
+            <Button Content="Save Changes" HorizontalAlignment="Center" Click="Save_Note_Changes"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

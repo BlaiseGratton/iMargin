@@ -30,7 +30,7 @@ namespace iMargin
         {
             InitializeComponent();
             CatCombo.SelectedIndex = 0;
-            CatCombo.DataContext = repo.Context().Categories.Local;
+            CatCombo.DataContext = cats;
         }
 
         private void Add_Note(object sender, RoutedEventArgs e)
