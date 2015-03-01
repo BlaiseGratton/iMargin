@@ -16,8 +16,9 @@
                 <Button x:Name="view_notes_button" Content="View Notes"/>
                 <Button x:Name="search_button" Content="Search"/>
             </Menu>
+            <Image Source="/img/notebook_background.jpg" Panel.ZIndex="-10" Height="481"/>
         </StackPanel>
-        <ListBox Name="NoteTitleList" ItemsSource="{Binding NotifyOnSourceUpdated=True}" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="499" Margin="114,121,0,0">
+        <ListBox Opacity=".4" Name="NoteTitleList" ItemsSource="{Binding NotifyOnSourceUpdated=True}" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="499" Margin="114,121,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Name="TitleBox" Text="{Binding Key, UpdateSourceTrigger=PropertyChanged}"/>

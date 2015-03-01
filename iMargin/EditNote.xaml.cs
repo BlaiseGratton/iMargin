@@ -25,12 +25,14 @@ namespace iMargin
         private static NoteRepository repo = new NoteRepository();
         private static ObservableCollection<Model.Category> cats = repo.Context().Categories.Local;
         public Note noteInput;
+        public string oldTitle;
 
 
         public EditNote(Note note)
         {
             InitializeComponent();
             this.noteInput = note;
+            oldTitle = noteInput.Title;
             CatCombo.DataContext = cats;
             CatCombo.SelectedIndex = cats.IndexOf(repo.GetCatById(note.CategoryId));
             WrapperPanel.DataContext = note;
@@ -44,8 +46,12 @@ namespace iMargin
 
         private void Save_Note_Changes(object sender, RoutedEventArgs e)
         {
+            Note edited = repo.GetNoteById(noteInput.NoteId);
+            edited.Title = TitleBox.Text;
+            edited.Content = ContentBox.Text;
             repo.SaveChanges();
-            repo.SaveChanges();
+            MainWindow.titleDict.Add(TitleBox.Text, noteInput.NoteId);
+            MainWindow.titleDict.Remove(oldTitle);
             ViewNote v = new ViewNote(repo.GetNoteById(noteInput.NoteId));
             v.Show();
             this.Close();

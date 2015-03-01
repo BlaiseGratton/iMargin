@@ -14,9 +14,10 @@
                 <ComboBox ItemsSource="{Binding NotifyOnSourceUpdated=True}" DisplayMemberPath="CategoryName" SelectedValuePath="CategoryId" Name="CatCombo" Width="189"/>
                 <Button Content="New Category" Width="122" Click="New_Category_Button"/>
             </StackPanel>
-            <TextBox Text="{Binding Content}" Height="252" Name="ContentBox" TextWrapping="Wrap"/>
+            <TextBox Opacity=".3" Text="{Binding Content}" Height="252" Name="ContentBox" TextWrapping="Wrap"/>
             <Button Content="Save Changes" HorizontalAlignment="Center" Click="Save_Note_Changes"/>
         </StackPanel>
+            <Image Opacity=".15" Panel.ZIndex="-10" Source="/img/notepad.png" Height="496" Margin="0,0,10,0"/>
 
     </Grid>
 </Window>
