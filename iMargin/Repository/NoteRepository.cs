@@ -132,5 +132,15 @@ namespace iMargin.Repository
         {
             _dbContext.SaveChanges();
         }
+
+        public Dictionary<string, int> GetByCategory(int catId)
+        {
+            IEnumerable<Model.Note> group = from Note in _dbContext.Notes
+                                            where Note.CategoryId == catId
+                                            select Note;
+            Dictionary<string, int> groupedNotes = group.Select(n => new { n.Title, n.NoteId })
+                                                   .ToDictionary( n => n.Title, n => n.NoteId );
+            return groupedNotes;
+        }
     }
 }

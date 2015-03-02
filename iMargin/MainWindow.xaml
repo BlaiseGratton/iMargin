@@ -21,7 +21,7 @@
         <ListBox Opacity=".4" Name="NoteTitleList" ItemsSource="{Binding NotifyOnSourceUpdated=True}" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="499" Margin="114,121,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Name="TitleBox" Text="{Binding Key, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Text="{Binding Key, UpdateSourceTrigger=PropertyChanged}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
@@ -30,9 +30,9 @@
             <StackPanel Height="29" Orientation="Horizontal">
                 <Label Content="Search By:"/>
                 <ComboBox DropDownClosed="SearchComboBox_DropDownClosed" Name="SearchComboBox" Width="120"/>
-                <ComboBox DropDownClosed="SearchCats_DropDownClosed" Name="SearchCats" DisplayMemberPath="Value" Width="120"/>
+                <ComboBox DropDownClosed="SearchCats_DropDownClosed" Name="SearchCats" SelectedValuePath="Key" DisplayMemberPath="Value" Width="120"/>
                 <TextBox Name="DateContentBox" KeyUp="DateContentBox_KeyDown_1" TextWrapping="Wrap" Width="89"/>
-                <Button Name="SearchButton" Content="Search" Width="64"/>
+                <Button Name="SearchButton" Content="Search" Width="64" Click="SearchButton_Click"/>
             </StackPanel>
             <ListBox Name="SearchResults" ItemsSource="{Binding NotifyOnSourceUpdated=True}" Height="241">
                 <ListBox.ItemTemplate>

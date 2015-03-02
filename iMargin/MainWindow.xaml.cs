@@ -28,6 +28,7 @@ namespace iMargin
         public static ObservableDictionary<string, int> titleDict = new ObservableDictionary<string,int>(repo.GetAllTitles());
         public static IEnumerable<Model.Note> allNotes = repo.All();
         public static ObservableDictionary<int, string> catDict = new ObservableDictionary<int, string>(repo.GetAllCategories());
+        public static ObservableDictionary<string, int> searchResultDict;
 
         public MainWindow()
         {
@@ -38,11 +39,23 @@ namespace iMargin
             SearchComboBox.ItemsSource = new string[] { "Category", "Date", "Content" };
             SearchCats.Visibility = Visibility.Collapsed;
             NoteTitleList.MouseDoubleClick += new MouseButtonEventHandler(ViewNote);
+            SearchResults.MouseDoubleClick += new MouseButtonEventHandler(ViewSearchNote);
             if (repo.GetCount() == 0)
             {
                 //repo.PopulateDatabase();
             }
             NoteTitleList.DataContext = titleDict;
+        }
+
+        private void ViewSearchNote(object sender, MouseButtonEventArgs e)
+        {
+            var title = sender as ListBox;
+            var noteDict = title.SelectedItem as Dictionary<string, int>;
+            var tuple = searchResultDict.ElementAt(title.SelectedIndex);
+            int noteId = tuple.Value;
+            Note note = repo.GetNoteById(noteId);
+            var v = new ViewNote(note);
+            v.Show();
         }
 
         private void new_note_button_Click(object sender, RoutedEventArgs e)
@@ -81,7 +94,7 @@ namespace iMargin
             {
                 SearchCats.Visibility = Visibility.Visible;
                 DateContentBox.Visibility = Visibility.Collapsed;
-            SearchButton.Visibility = Visibility.Collapsed;
+                SearchButton.Visibility = Visibility.Collapsed;
                 DateContentBox.Text = "";
                 SearchCats.ItemsSource = catDict;
             }
@@ -116,6 +129,23 @@ namespace iMargin
             if (SearchComboBox.SelectedItem.ToString() == "Date")
             {
                 SearchButton.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SearchComboBox.SelectedValue.ToString() == "Category")
+            {
+                searchResultDict = new ObservableDictionary<string, int>(repo.GetByCategory((int)SearchCats.SelectedValue));
+                SearchResults.DataContext = searchResultDict;
+            }
+            if (SearchComboBox.SelectedValue.ToString() == "Date")
+            {
+                MessageBox.Show(SearchComboBox.SelectedValue.ToString());
+            }
+            if (SearchComboBox.SelectedValue.ToString() == "Content")
+            {
+                MessageBox.Show(SearchComboBox.SelectedValue.ToString());
             }
         }
     }
