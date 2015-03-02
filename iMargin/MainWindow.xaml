@@ -18,14 +18,14 @@
             </Menu>
             <Image Source="/img/notebook_background.jpg" Panel.ZIndex="-10" Height="481"/>
         </StackPanel>
-        <ListBox Opacity=".4" Name="NoteTitleList" ItemsSource="{Binding NotifyOnSourceUpdated=True}" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="499" Margin="114,121,0,0">
+        <ListBox Opacity=".6" Name="NoteTitleList" ItemsSource="{Binding NotifyOnSourceUpdated=True}" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="499" Margin="114,121,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Key, UpdateSourceTrigger=PropertyChanged}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Background="AntiqueWhite" Opacity=".7" Name="SearchBox" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="499" Margin="114,121,0,0">
+        <StackPanel Background="AntiqueWhite" Opacity=".8" Name="SearchBox" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="499" Margin="114,121,0,0">
             <Label Content="Search Notes" HorizontalAlignment="Center"/>
             <StackPanel Height="29" Orientation="Horizontal">
                 <Label Content="Search By:"/>

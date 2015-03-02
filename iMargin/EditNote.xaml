@@ -6,15 +6,15 @@
         <StackPanel Name="WrapperPanel" HorizontalAlignment="Left" Height="422" VerticalAlignment="Bottom" Width="658">
             <Label Content="Edit Note" HorizontalAlignment="Center"/>
             <StackPanel Height="44" Orientation="Horizontal">
-                <Label Content="Title:" HorizontalAlignment="Left" Width="227"/>
+                <Label HorizontalContentAlignment="Right" Content="Title:" HorizontalAlignment="Left" Width="227"/>
                 <TextBox Name="TitleBox" TextWrapping="Wrap" Text="{Binding Title}" Width="191" TextAlignment="Center"/>
             </StackPanel>
             <StackPanel Height="43" Orientation="Horizontal">
-                <Label Content="Label" Width="227"/>
+                <Label HorizontalContentAlignment="Right" Content="Category" Width="227" HorizontalAlignment="Left"/>
                 <ComboBox ItemsSource="{Binding NotifyOnSourceUpdated=True}" DisplayMemberPath="Value" SelectedValuePath="Key" Name="CatCombo" Width="189"/>
                 <Button Content="New Category" Width="122" Click="New_Category_Button"/>
             </StackPanel>
-            <TextBox Opacity=".3" Text="{Binding Content}" Height="252" Name="ContentBox" TextWrapping="Wrap"/>
+            <TextBox Opacity=".7" Text="{Binding Content}" Height="252" Name="ContentBox" TextWrapping="Wrap"/>
             <Button Content="Save Changes" HorizontalAlignment="Center" Click="Save_Note_Changes"/>
         </StackPanel>
             <Image Opacity=".15" Panel.ZIndex="-10" Source="/img/notepad.png" Height="496" Margin="0,0,10,0"/>

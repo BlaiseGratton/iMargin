@@ -50,9 +50,13 @@ namespace iMargin
             Note edited = repo.GetNoteById(noteInput.NoteId);
             edited.Title = TitleBox.Text;
             edited.Content = ContentBox.Text;
+            edited.CategoryId = (int)CatCombo.SelectedValue;
             repo.SaveChanges();
-            MainWindow.titleDict.Add(TitleBox.Text, noteInput.NoteId);
-            MainWindow.titleDict.Remove(oldTitle);
+            if (oldTitle != edited.Title)
+            {
+                MainWindow.titleDict.Add(TitleBox.Text, noteInput.NoteId);
+                MainWindow.titleDict.Remove(oldTitle);
+            }
             ViewNote v = new ViewNote(repo.GetNoteById(noteInput.NoteId));
             v.Show();
             this.Close();
