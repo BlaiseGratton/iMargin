@@ -33,7 +33,10 @@ namespace iMargin
         {
             InitializeComponent();
             SearchBox.Visibility = Visibility.Collapsed;
+            DateContentBox.Visibility = Visibility.Collapsed;
+            SearchButton.Visibility = Visibility.Collapsed;
             SearchComboBox.ItemsSource = new string[] { "Category", "Date", "Content" };
+            SearchCats.Visibility = Visibility.Collapsed;
             NoteTitleList.MouseDoubleClick += new MouseButtonEventHandler(ViewNote);
             if (repo.GetCount() == 0)
             {
@@ -76,11 +79,43 @@ namespace iMargin
             ComboBox searchCombo = sender as ComboBox;
             if (searchCombo.SelectedItem.ToString() == "Category")
             {
-                MessageBox.Show("Category");
+                SearchCats.Visibility = Visibility.Visible;
+                DateContentBox.Visibility = Visibility.Collapsed;
+            SearchButton.Visibility = Visibility.Collapsed;
+                DateContentBox.Text = "";
+                SearchCats.ItemsSource = catDict;
             }
             else if (searchCombo.SelectedItem.ToString() == "Date")
             {
-                MessageBox.Show("Date");
+                SearchCats.Visibility = Visibility.Collapsed;
+                DateContentBox.Visibility = Visibility.Visible;
+                SearchButton.Visibility = Visibility.Collapsed;
+                DateContentBox.Text = "";
+            }
+            else if (searchCombo.SelectedItem.ToString() == "Content")
+            {
+                SearchCats.Visibility = Visibility.Collapsed;
+                DateContentBox.Visibility = Visibility.Visible;
+                SearchButton.Visibility = Visibility.Collapsed;
+                DateContentBox.Text = "";
+            }
+        }
+
+        private void SearchCats_DropDownClosed(object sender, EventArgs e)
+        {
+            SearchButton.Visibility = Visibility.Visible;
+        }
+
+        private void DateContentBox_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            SearchButton.Visibility = Visibility.Visible;
+            if (DateContentBox.Text == "")
+            {
+                SearchButton.Visibility = Visibility.Collapsed;
+            }
+            if (SearchComboBox.SelectedItem.ToString() == "Date")
+            {
+                SearchButton.Visibility = Visibility.Collapsed;
             }
         }
     }

@@ -25,12 +25,22 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Background="AntiqueWhite" Opacity=".5" Name="SearchBox" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="499" Margin="114,121,0,0">
+        <StackPanel Background="AntiqueWhite" Opacity=".7" Name="SearchBox" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="499" Margin="114,121,0,0">
             <Label Content="Search Notes" HorizontalAlignment="Center"/>
             <StackPanel Height="29" Orientation="Horizontal">
                 <Label Content="Search By:"/>
                 <ComboBox DropDownClosed="SearchComboBox_DropDownClosed" Name="SearchComboBox" Width="120"/>
+                <ComboBox DropDownClosed="SearchCats_DropDownClosed" Name="SearchCats" DisplayMemberPath="Value" Width="120"/>
+                <TextBox Name="DateContentBox" KeyUp="DateContentBox_KeyDown_1" TextWrapping="Wrap" Width="89"/>
+                <Button Name="SearchButton" Content="Search" Width="64"/>
             </StackPanel>
+            <ListBox Name="SearchResults" ItemsSource="{Binding NotifyOnSourceUpdated=True}" Height="241">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Key, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
     </Grid>
 </Window>
