@@ -142,5 +142,15 @@ namespace iMargin.Repository
                                                    .ToDictionary( n => n.Title, n => n.NoteId );
             return groupedNotes;
         }
+
+        public Dictionary<string, int> GetSubstring(string sub)
+        {
+            IEnumerable<Model.Note> group = from Note in _dbContext.Notes
+                                            where Note.Title.IndexOf(sub) != -1 || Note.Content.IndexOf(sub) != -1
+                                            select Note;
+            Dictionary<string, int> groupedNotes = group.Select(n => new { n.Title, n.NoteId })
+                                                   .ToDictionary( n => n.Title, n => n.NoteId );
+            return groupedNotes;
+        }
     }
 }

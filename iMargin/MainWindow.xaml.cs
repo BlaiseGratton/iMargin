@@ -142,10 +142,12 @@ namespace iMargin
             if (SearchComboBox.SelectedValue.ToString() == "Date")
             {
                 MessageBox.Show(SearchComboBox.SelectedValue.ToString());
+                SearchResults.DataContext = searchResultDict;
             }
             if (SearchComboBox.SelectedValue.ToString() == "Content")
             {
-                MessageBox.Show(SearchComboBox.SelectedValue.ToString());
+                searchResultDict = new ObservableDictionary<string,int>(repo.GetSubstring((string)DateContentBox.Text));
+                SearchResults.DataContext = searchResultDict;
             }
         }
     }
