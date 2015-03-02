@@ -13,8 +13,8 @@
                     </FlowDocument>
                 </RichTextBox>
                 <Button x:Name="new_note_button" Content="New Note" Click="new_note_button_Click"/>
-                <Button x:Name="all_notes_button" Content="All Notes"/>
-                <Button x:Name="search_button" Content="Search"/>
+                <Button x:Name="all_notes_button" Content="All Notes" Click="all_notes_button_Click"/>
+                <Button x:Name="search_button" Content="Search" Click="search_button_Click"/>
             </Menu>
             <Image Source="/img/notebook_background.jpg" Panel.ZIndex="-10" Height="481"/>
         </StackPanel>
@@ -25,5 +25,12 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <StackPanel Background="AntiqueWhite" Opacity=".5" Name="SearchBox" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="499" Margin="114,121,0,0">
+            <Label Content="Search Notes" HorizontalAlignment="Center"/>
+            <StackPanel Height="29" Orientation="Horizontal">
+                <Label Content="Search By:"/>
+                <ComboBox DropDownClosed="SearchComboBox_DropDownClosed" Name="SearchComboBox" Width="120"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

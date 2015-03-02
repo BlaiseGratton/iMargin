@@ -28,11 +28,12 @@ namespace iMargin
         public static ObservableDictionary<string, int> titleDict = new ObservableDictionary<string,int>(repo.GetAllTitles());
         public static IEnumerable<Model.Note> allNotes = repo.All();
         public static ObservableDictionary<int, string> catDict = new ObservableDictionary<int, string>(repo.GetAllCategories());
-        public static bool isSearching = false;
 
         public MainWindow()
         {
             InitializeComponent();
+            SearchBox.Visibility = Visibility.Collapsed;
+            SearchComboBox.ItemsSource = new string[] { "Category", "Date", "Content" };
             NoteTitleList.MouseDoubleClick += new MouseButtonEventHandler(ViewNote);
             if (repo.GetCount() == 0)
             {
@@ -60,7 +61,27 @@ namespace iMargin
 
         private void all_notes_button_Click(object sender, RoutedEventArgs e)
         {
-            isSearching = true;
+            NoteTitleList.Visibility = Visibility.Visible;
+            SearchBox.Visibility = Visibility.Collapsed;
+        }
+
+        private void search_button_Click(object sender, RoutedEventArgs e)
+        {
+            NoteTitleList.Visibility = Visibility.Collapsed;
+            SearchBox.Visibility = Visibility.Visible;
+        }
+
+        private void SearchComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            ComboBox searchCombo = sender as ComboBox;
+            if (searchCombo.SelectedItem.ToString() == "Category")
+            {
+                MessageBox.Show("Category");
+            }
+            else if (searchCombo.SelectedItem.ToString() == "Date")
+            {
+                MessageBox.Show("Date");
+            }
         }
     }
 }
