@@ -25,12 +25,14 @@ namespace iMargin
     {
         private static NoteRepository repo = new NoteRepository();
         public static ObservableCollection<Model.Category> cats = repo.Context().Categories.Local;
+        public string createdOn = DateTime.Now.ToShortDateString();
 
         public NewNote()
         {
             InitializeComponent();
             CatCombo.SelectedIndex = 0;
             CatCombo.DataContext = MainWindow.catDict;
+            DateBox.Text = createdOn;
         }
 
         private void Add_Note(object sender, RoutedEventArgs e)
@@ -38,7 +40,7 @@ namespace iMargin
             string new_title = NewTitle.Text;
             string new_content = NoteContent.Text;
             int new_catId = (int)CatCombo.SelectedValue;
-            Note note = new Note(new_title, "12/13/2015", new_catId, new_content);
+            Note note = new Note(new_title, createdOn, new_catId, new_content);
             MainWindow.repo.AddNote(note);
             MainWindow.titleDict.Add(note.Title, note.NoteId);
             this.Close();

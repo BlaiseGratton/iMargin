@@ -28,6 +28,7 @@ namespace iMargin
         public static ObservableDictionary<string, int> titleDict = new ObservableDictionary<string,int>(repo.GetAllTitles());
         public static IEnumerable<Model.Note> allNotes = repo.All();
         public static ObservableDictionary<int, string> catDict = new ObservableDictionary<int, string>(repo.GetAllCategories());
+        public static bool isSearching = false;
 
         public MainWindow()
         {
@@ -55,6 +56,11 @@ namespace iMargin
             Note note = repo.GetNoteById(noteId);
             var v = new ViewNote(note);
             v.Show();
+        }
+
+        private void all_notes_button_Click(object sender, RoutedEventArgs e)
+        {
+            isSearching = true;
         }
     }
 }

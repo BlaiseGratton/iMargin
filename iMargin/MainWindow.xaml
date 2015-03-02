@@ -13,7 +13,7 @@
                     </FlowDocument>
                 </RichTextBox>
                 <Button x:Name="new_note_button" Content="New Note" Click="new_note_button_Click"/>
-                <Button x:Name="view_notes_button" Content="View Notes"/>
+                <Button x:Name="all_notes_button" Content="All Notes"/>
                 <Button x:Name="search_button" Content="Search"/>
             </Menu>
             <Image Source="/img/notebook_background.jpg" Panel.ZIndex="-10" Height="481"/>
