@@ -12,7 +12,7 @@
             </StackPanel>
             <StackPanel Height="27" Orientation="Horizontal">
                 <TextBox TextWrapping="Wrap" Name="NewTitle" Text="" Width="185"/>
-                <ComboBox ItemsSource="{Binding NotifyOnSourceUpdated=True}" DisplayMemberPath="CategoryName" SelectedValuePath="CategoryId" Name="CatCombo" Width="115"/>
+                <ComboBox ItemsSource="{Binding NotifyOnSourceUpdated=True}" DisplayMemberPath="Value" SelectedValuePath="Key" Name="CatCombo" Width="115"/>
                 <Button Content="New Category" Width="81" Click="Open_Add_Category_Window"/>
                 <TextBlock TextWrapping="Wrap" Text="" Width="137" Margin="5, 0, 0, 0"/>
             </StackPanel>

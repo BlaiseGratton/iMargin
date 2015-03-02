@@ -24,13 +24,13 @@ namespace iMargin
     public partial class NewNote : Window
     {
         private static NoteRepository repo = new NoteRepository();
-        private static ObservableCollection<Model.Category> cats = repo.Context().Categories.Local;
+        public static ObservableCollection<Model.Category> cats = repo.Context().Categories.Local;
 
         public NewNote()
         {
             InitializeComponent();
             CatCombo.SelectedIndex = 0;
-            CatCombo.DataContext = cats;
+            CatCombo.DataContext = MainWindow.catDict;
         }
 
         private void Add_Note(object sender, RoutedEventArgs e)

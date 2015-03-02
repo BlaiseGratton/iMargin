@@ -108,6 +108,7 @@ namespace iMargin.Repository
         {
             _dbContext.Categories.Add(C);
             _dbContext.SaveChanges();
+            MainWindow.catDict.Add(C.CategoryId, C.CategoryName);
         }
 
         internal void PopulateDatabase()

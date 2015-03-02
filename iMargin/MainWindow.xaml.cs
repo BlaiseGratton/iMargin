@@ -27,6 +27,7 @@ namespace iMargin
         public static NoteRepository repo = new NoteRepository();
         public static ObservableDictionary<string, int> titleDict = new ObservableDictionary<string,int>(repo.GetAllTitles());
         public static IEnumerable<Model.Note> allNotes = repo.All();
+        public static ObservableDictionary<int, string> catDict = new ObservableDictionary<int, string>(repo.GetAllCategories());
 
         public MainWindow()
         {

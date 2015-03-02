@@ -1,4 +1,5 @@
-﻿using iMargin.Model;
+﻿using DrWPF.Windows.Data;
+using iMargin.Model;
 using iMargin.Repository;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,8 @@ namespace iMargin
     {
         private static NoteRepository repo = new NoteRepository();
         private static ObservableCollection<Model.Category> cats = repo.Context().Categories.Local;
-        public Note noteInput;
-        public string oldTitle;
+        private Note noteInput;
+        private string oldTitle;
 
 
         public EditNote(Note note)
@@ -33,7 +34,7 @@ namespace iMargin
             InitializeComponent();
             this.noteInput = note;
             oldTitle = noteInput.Title;
-            CatCombo.DataContext = cats;
+            CatCombo.DataContext = MainWindow.catDict;
             CatCombo.SelectedIndex = cats.IndexOf(repo.GetCatById(note.CategoryId));
             WrapperPanel.DataContext = note;
         }
